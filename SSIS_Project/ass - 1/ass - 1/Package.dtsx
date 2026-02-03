@@ -1,0 +1,249 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/4/2026 12:39:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YASH_VAGHASIYA"
+  DTS:CreatorName="YASH_VAGHASIYA\yashv"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{0808DCCD-6C86-44AC-9C9F-EF81ACE70302}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{6C2A3233-9459-4966-B582-3801438F58E7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[file1.csv]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{1A87E92D-6E6F-4DAA-A6AC-79D2251B3152}"
+      DTS:ObjectName="file1.csv">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="@[User::CurrentFile]" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[folder1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6992B542-1111-44CE-8886-199AF96348B7}"
+      DTS:ObjectName="folder1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ass - 1\folder1" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[folder1 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A69CEC93-DD5A-45F2-81A7-5511645A1D0D}"
+      DTS:ObjectName="folder1 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ass - 1\folder1" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[folder2]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{D913C4C7-BBDB-454B-B282-37185E7511CA}"
+      DTS:ObjectName="folder2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ass - 1\folder2" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[folder2 1]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A2799965-1046-4A42-BC69-8608611E6A68}"
+      DTS:ObjectName="folder2 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ass - 1\folder2" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8BB03835-4FF3-4C64-B555-271DA8BF37F5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentFile">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS_Practice\SSIS_Project\ass - 1\folder1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AAE3E6E6-CD47-4020-952C-15CCD13E3A9C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ZIP">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute Process Task"
+      DTS:CreationName="Microsoft.ExecuteProcess"
+      DTS:Description="Execute Process Task"
+      DTS:DTSID="{5F8F1F49-29B8-476E-92E3-E5F3B91426F0}"
+      DTS:ExecutableType="Microsoft.ExecuteProcess"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute Process Task"
+      DTS:TaskContact="Execute Process Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecuteProcessData
+          Executable="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+          Arguments="Compress-Archive -Path 'D:\SSIS_Practice\SSIS_Project\ass - 1\folder2\*' -DestinationPath 'D:\SSIS_Practice\SSIS_Project\ass - 1\folder3\ArchivedFiles.zip' -Force"
+          WindowStyle="Hidden" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:DelayValidation="True"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{65038E6B-A7C6-49FB-8D2D-FD574A93B5A9}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{FCD9212B-763B-4CF7-A90A-41BA7465B81E}"
+        DTS:ObjectName="{FCD9212B-763B-4CF7-A90A-41BA7465B81E}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\SSIS_Practice\SSIS_Project\ass - 1\folder1" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:DelayValidation="True"
+          DTS:Description="File System Task"
+          DTS:DTSID="{31BE2AAE-380B-4056-A1DB-74238C33B970}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskSourcePath="User::CurrentFile"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="folder2 1" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{121DFF96-F1FF-47A4-8097-FE08134B965D}"
+          DTS:ObjectName="{121DFF96-F1FF-47A4-8097-FE08134B965D}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::CurrentFile" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{AE0B8DBC-639E-4317-A561-A05E1269B304}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Execute Process Task" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158.4,41.6"
+          Id="Package\Foreach Loop Container\File System Task"
+          TopLeft="30.39998142322,48.9333314409522" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="225.6,145.6"
+          Size="225.6,188.8"
+          Id="Package\Foreach Loop Container"
+          TopLeft="245.833319901593,57.1999996022384" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Execute Process Task"
+          TopLeft="254.166652779613,290.333331314392" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="358.633319901593,245.999999602238">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-13.66666712198,44.3333317121532"
+              Start="0,0"
+              End="-13.66666712198,36.8333317121532">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.1666658560766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.1666658560766"
+                    Point2="0,22.1666658560766"
+                    Point3="-4,22.1666658560766" />
+                  <mssgle:LineSegment
+                    End="-9.66666712198003,22.1666658560766" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-9.66666712198003,22.1666658560766"
+                    Point2="-13.66666712198,22.1666658560766"
+                    Point3="-13.66666712198,26.1666658560766" />
+                  <mssgle:LineSegment
+                    End="-13.66666712198,36.8333317121532" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
