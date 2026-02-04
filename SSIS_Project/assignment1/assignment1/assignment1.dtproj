@@ -14,19 +14,19 @@
     <Manifest>
       <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithUserKey" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
-          <SSIS:Property SSIS:Name="ID">{22070b9b-994c-4d78-8b09-c0aef3eb733b}</SSIS:Property>
+          <SSIS:Property SSIS:Name="ID">{d829fc9d-f034-4922-bebe-de282b951541}</SSIS:Property>
           <SSIS:Property SSIS:Name="Name">assignment1</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionComments">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="CreationDate">2026-02-03T23:39:30.1197278+05:30</SSIS:Property>
+          <SSIS:Property SSIS:Name="CreationDate">2026-02-04T14:05:22.2468626+05:30</SSIS:Property>
           <SSIS:Property SSIS:Name="CreatorName">YASH_VAGHASIYA\yashv</SSIS:Property>
           <SSIS:Property SSIS:Name="CreatorComputerName">YASH_VAGHASIYA</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEOy8E4JyG0+3lbJ4CleYGAAAAAACAAAAAAAQZgAAAAEAACAAAACjwP+1T7jzbzPZI4qSTsJ9VvfMZyWZ7LSt7bkWdhQOxQAAAAAOgAAAAAIAACAAAACGSISsvoYknmhCJR9VwY4iuJEQCxPDZ/SAM2PScOF0SpAAAAAOkfgAz4whtXYun8WDmjbjOxnAioraEd/QZ0CAtLtMm7MdQ1Rah+KOBCQbBnufZvhiTCm/XpYpabTdS6LmY7lcrsxCZNofcwpMiqUMjOBJ2Dkr85sg8jku0ed0Swl62hcADgL+1z3eXIRPGmbSdWeBGUBs65Y4w99DisSGbQsbptBYfPM/7t9pHAKdt33700NAAAAATS0SocIFs5PzLq8P7+pE8OR+RjY2PpcggxIufOZh54BX81atHdFKGViyCphsL9sYaLobflsIZhvSEUWUY5jt9Q==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAEOy8E4JyG0+3lbJ4CleYGAAAAAACAAAAAAAQZgAAAAEAACAAAADYdGXXL73oejGHLSExT5TAVtHRQZIFrJAXSC30qzjRKQAAAAAOgAAAAAIAACAAAABFzGTTHtUQNYIF3o9Medik2joIabgdMbWXUU19px+ZzpAAAAAC6poP7zpd/hev17ODZxH1gE6LupQI002dAriJa6do8hMGN4tEuh9qGdYRluaw8bNDrxR2TCGnhBuGHszKBdfyWGWOTZ3M5ZIoLmzsBddoRH8Vf/l7Af0RC5/gAL9huSzCJr14yuV2nVOvp3DVFk0awBiiYG9tCEc8HnRVnJP935lpMvYGHlxQnyIb4S5hFGpAAAAAY5Lq0MSsea9lTOg5jVO7PDjptEZ+AZ2ZF7iejtKMbMinDcSAd5nQKPytXVQQfDE5kNdWKQYfhyv/LTqXifEFNA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -38,20 +38,51 @@
           <SSIS:PackageInfo>
             <SSIS:PackageMetaData SSIS:Name="Package.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{200CCC7E-65D0-4194-B18E-5F022F47B1EE}</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{F5AA1A79-53AE-4A8F-A712-1483AD99B231}</SSIS:Property>
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">2</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{98B36EE5-0731-4AAD-B52B-1951957E0C5C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{7E83BB80-5822-42C1-BC4B-CCA346E35A71}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
                 <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
               </SSIS:Properties>
-              <SSIS:Parameters />
+              <SSIS:Parameters>
+                <SSIS:Parameter SSIS:Name="CM.folder2.ConnectByProxy">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+                <SSIS:Parameter SSIS:Name="CM.folder2.ConnectionString">
+                  <SSIS:Properties>
+                    <SSIS:Property SSIS:Name="ID">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="CreationName">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="Description">
+                    </SSIS:Property>
+                    <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\SSIS_Practice\SSIS_Project\assignment1\folder2</SSIS:Property>
+                    <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+                  </SSIS:Properties>
+                </SSIS:Parameter>
+              </SSIS:Parameters>
             </SSIS:PackageMetaData>
           </SSIS:PackageInfo>
         </SSIS:DeploymentInfo>
@@ -76,7 +107,13 @@
         <LinkedAzureSSISIR />
         <LinkedAzureStorage />
         <RemoteExecutionFolder />
-        <ParameterConfigurationValues />
+        <ParameterConfigurationValues>
+          <ConfigurationSetting>
+            <Id>LastModifiedTime</Id>
+            <Name>LastModifiedTime</Name>
+            <Value xsi:type="xsd:dateTime">2026-02-04T08:39:30.4313298Z</Value>
+          </ConfigurationSetting>
+        </ParameterConfigurationValues>
       </Options>
     </Configuration>
   </Configurations>
