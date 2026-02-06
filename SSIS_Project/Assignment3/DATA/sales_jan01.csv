@@ -1,0 +1,4 @@
+OrderID,Product,Category,Quantity,Price,Date
+1001,Soap,Personal Care,10,25,2026-01-01
+1002,Shampoo,Personal Care,5,120,2026-01-01
+1003,Toothpaste,Personal Care,8,55,2026-01-01

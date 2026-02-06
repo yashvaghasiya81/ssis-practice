@@ -1,0 +1,4 @@
+OrderID,Product,Category,Quantity,Price,Date
+1004,Detergent,Cleaning,4,210,2026-01-02
+1005,Floor Cleaner,Cleaning,6,150,2026-01-02
+1006,Dishwash,Cleaning,7,90,2026-01-02

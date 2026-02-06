@@ -1,0 +1,4 @@
+OrderID,Product,Category,Quantity,Price,Date
+1007,Handwash,Hygiene,12,60,2026-01-03
+1008,Sanitizer,Hygiene,15,40,2026-01-03
+1009,Facewash,Hygiene,9,85,2026-01-03
