@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="31"
-  DTS:VersionGUID="{2CF43BF4-31A0-44EC-BA24-5D2A03D963A2}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{3C7B8E36-48CD-434C-8B54-6ED247FB6F91}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1233,11 +1233,11 @@
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Sequence Container\Data Flow Task"
-          TopLeft="262.6999886627,5.1333313505518" />
+          TopLeft="243.533323043254,33.7333311516709" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Sequence Container\Data Flow Task 1"
-          TopLeft="5.5,5.46666544927493" />
+          TopLeft="12.9999995902181,33.1999985897542" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Sequence Container\Data Flow Task 2"
@@ -1255,9 +1255,9 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38.633322087097,41.8666661363179"
+              EndConnector="-38.633322087097,41.866666136318"
               Start="0,0"
-              End="-38.633322087097,34.3666661363179">
+              End="-38.633322087097,34.366666136318">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1274,7 +1274,7 @@
                     Point2="-38.633322087097,20.933333068159"
                     Point3="-38.633322087097,24.933333068159" />
                   <mssgle:LineSegment
-                    End="-38.633322087097,34.3666661363179" />
+                    End="-38.633322087097,34.366666136318" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1330,13 +1330,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\Sequence Container\Data Flow Task 1\Excel Source"
-          TopLeft="340.999995812774,90.999999538064" />
-        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container\Data Flow Task 1\OLE DB Destination"
           TopLeft="325.999996036291,193.999998003244" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Sequence Container\Data Flow Task 1\Excel Source"
+          TopLeft="340.999995812774,90.999999538064" />
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task 1.Paths[Excel Source Output]"
           TopLeft="411.299995924533,132.599999538064">
