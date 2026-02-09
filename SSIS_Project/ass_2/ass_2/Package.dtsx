@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{47B73F30-FF18-4782-8DC2-B622B39C5A7F}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{2CF43BF4-31A0-44EC-BA24-5D2A03D963A2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -43,7 +43,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\data1.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\data1.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -56,7 +56,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\Data1.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\Data1.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -68,7 +68,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\Data2.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\Data2.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -80,7 +80,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\Data3.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_Practice\SSIS_Project\ass_2\DATA\Data3.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
@@ -1227,13 +1227,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Sequence Container\Data Flow Task 1"
-          TopLeft="5.5,5.46666544927493" />
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="327.49998210619,98.666666425599" />
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Sequence Container\Data Flow Task"
           TopLeft="262.6999886627,5.1333313505518" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Sequence Container\Data Flow Task 1"
+          TopLeft="5.5,5.46666544927493" />
         <NodeLayout
           Size="159.2,41.6"
           Id="Package\Sequence Container\Data Flow Task 2"
@@ -1245,36 +1249,32 @@
           Size="499.2,235.2"
           Id="Package\Sequence Container"
           TopLeft="121.666660019093,182.133332561917" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Execute SQL Task"
-          TopLeft="327.49998210619,98.666666425599" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="409.89998210619,140.266666425599">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-38.6333220870963,41.8666661363178"
+              EndConnector="-38.633322087097,41.8666661363179"
               Start="0,0"
-              End="-38.6333220870963,34.3666661363178">
+              End="-38.633322087097,34.3666661363179">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.9333330681589" />
+                    End="0,16.933333068159" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.9333330681589"
-                    Point2="0,20.9333330681589"
-                    Point3="-4,20.9333330681589" />
+                    Point1="0,16.933333068159"
+                    Point2="0,20.933333068159"
+                    Point3="-4,20.933333068159" />
                   <mssgle:LineSegment
-                    End="-34.6333220870963,20.9333330681589" />
+                    End="-34.633322087097,20.933333068159" />
                   <mssgle:CubicBezierSegment
-                    Point1="-34.6333220870963,20.9333330681589"
-                    Point2="-38.6333220870963,20.9333330681589"
-                    Point3="-38.6333220870963,24.9333330681589" />
+                    Point1="-34.633322087097,20.933333068159"
+                    Point2="-38.633322087097,20.933333068159"
+                    Point3="-38.633322087097,24.933333068159" />
                   <mssgle:LineSegment
-                    End="-38.6333220870963,34.3666661363178" />
+                    End="-38.633322087097,34.3666661363179" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1292,13 +1292,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\Sequence Container\Data Flow Task\Excel Source"
-          TopLeft="452.999993249774,129.999998062849" />
-        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Sequence Container\Data Flow Task\OLE DB Destination"
           TopLeft="437.999993473291,232.999996528029" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Sequence Container\Data Flow Task\Excel Source"
+          TopLeft="452.999993249774,129.999998062849" />
         <EdgeLayout
           Id="Package\Sequence Container\Data Flow Task.Paths[Excel Source Output]"
           TopLeft="523.299993361533,171.599998062849">
