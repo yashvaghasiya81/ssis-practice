@@ -1,0 +1,9 @@
+goal:-copy three file from one folder 1 to folder 2 and then converted all three files into one zip file and stored int folder 3
+
+Approach:-
+
+first our need is copy one file into another folder so for that we use file system task. in FST we add source and destination for our route and operation type is copy.
+now our first task is move 3 file not one file so we are rerun this process for 3 time . for dynamic approach we use for each loop because we don't know how many file in this folder . so move those all fie into another folder we use for each loop .
+for loop first we create one variable that's define where our loop is starting for that in value we give our folder path and set index 0 for first or starting file. now every transaction it takes one by one all file and copy into another folder.
+now our second task is create zip. for that we have two approach first one is using execute task in execute filed we give what we execute for that we give access of our powershell and in argument we give command of converting zip for source to destination.
+another approach is we use script task which execute script using c# .

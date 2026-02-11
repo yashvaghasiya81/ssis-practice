@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="29"
-  DTS:VersionGUID="{0A162253-7974-4E8E-9DE8-2959544E8F9E}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{0EE67899-C06F-4FBC-9E88-B8A4EF019472}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -156,8 +156,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{0A259A23-3039-41E6-960A-FE6BF2342315}"
-          DTS:ObjectName="{0A259A23-3039-41E6-960A-FE6BF2342315}"
+          DTS:DTSID="{9A6F1E06-86E7-4CB1-95E2-52BECFF9B188}"
+          DTS:ObjectName="{9A6F1E06-86E7-4CB1-95E2-52BECFF9B188}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::current" />
       </DTS:ForEachVariableMappings>
@@ -192,7 +192,7 @@
         <NodeLayout
           Size="156,41.6"
           Id="Package\loop for all file in the folder\folder1 to folder2"
-          TopLeft="39.2666425350649,27.9999986259143" />
+          TopLeft="39.2666425350649,27.1333319652743" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"

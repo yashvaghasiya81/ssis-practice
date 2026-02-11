@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{AA78C6D9-47E3-4ACB-8749-1947978FEA1F}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{EB939623-DBDA-44C5-82B8-56979E9F47E9}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1028,6 +1028,10 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="251.666652916207,48.0666664436791" />
+        <NodeLayout
           Size="150.4,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task"
           TopLeft="80.9666500477335,48.5333323449559" />
@@ -1038,10 +1042,6 @@
           Size="271.2,188"
           Id="Package\Foreach Loop Container"
           TopLeft="220.833321267533,159.333332525757" />
-        <NodeLayout
-          Size="164.8,41.6"
-          Id="Package\Execute SQL Task"
-          TopLeft="251.666652916207,48.0666664436791" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="334.066652916207,89.6666664436791">
@@ -1085,17 +1085,21 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
+          TopLeft="317.499982652566,171.599998806715" />
+        <NodeLayout
           Size="151.2,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
           TopLeft="329.999981969596,93.5999993491173" />
         <NodeLayout
+          Size="156,41.6"
+          Id="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
+          TopLeft="302.49998347213,236.199998897115" />
+        <NodeLayout
           Size="171.2,41.6"
           Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Destination"
           TopLeft="317.499982652566,304.199997884631" />
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\Derived Column"
-          TopLeft="317.499982652566,171.599998806715" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
           TopLeft="405.599981969596,135.199999349117">
@@ -1130,10 +1134,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Foreach Loop Container\Data Flow Task\Data Conversion"
-          TopLeft="302.49998347213,236.199998897115" />
         <EdgeLayout
           Id="Package\Foreach Loop Container\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="393.899982652566,213.199998806715">
