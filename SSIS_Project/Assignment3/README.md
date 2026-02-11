@@ -221,5 +221,5 @@ SELECT SUM(TotalAmount) FROM Sales_Data;
 
 
 Yash Vaghasiya
-SSIS Sales Data Transformation Project
+
 
