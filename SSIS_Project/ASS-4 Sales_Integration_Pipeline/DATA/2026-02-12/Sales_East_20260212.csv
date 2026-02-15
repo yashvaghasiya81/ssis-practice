@@ -1,0 +1,5 @@
+OrderId,OrderDate,CustomerName,ProductCode,Quantity,Amount
+E1201,12-02-2026,Amit Kumar,P1003,2,200
+E1202,12-02-2026,Riya Sharm,P1001,1,100
+E1203,12-02-2026,Sarah Jonson,P1004,1,180
+E1204,12-02-2026,John Smith,P1002,2,240

@@ -1,0 +1,5 @@
+OrderId,OrderDate,CustomerName,ProductCode,Quantity,Amount
+W2201,12-02-2026,Neha Verma,P1003,1,100
+W2202,12-02-2026,Michael Brown,P1004,1,180
+W2203,12-02-2026,Ankit Patil,P1001,2,200
+W2204,12-02-2026,Jon Smyth,P1002,1,120

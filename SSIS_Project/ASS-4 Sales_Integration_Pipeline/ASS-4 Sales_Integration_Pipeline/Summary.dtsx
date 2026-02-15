@@ -1,0 +1,1582 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/15/2026 1:27:02 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YASH_VAGHASIYA"
+  DTS:CreatorName="YASH_VAGHASIYA\yashv"
+  DTS:DTSID="{E67B8D94-DB2F-40F5-BA98-86AA5EF0CD7B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Summary"
+  DTS:PackageType="5"
+  DTS:VersionBuild="45"
+  DTS:VersionGUID="{995819ED-1827-4C18-8E54-996442F02219}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5CC84825-216B-4697-A9C1-8D13EA682D71}"
+      DTS:ObjectName="YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=YASH_VAGHASIYA\SQLEXPRESS;Initial Catalog=Customers_sales_integration;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{5CC84825-216B-4697-A9C1-8D13EA682D71}YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6D0F5159-8DCA-4307-B484-BC7D1B991503}"
+      DTS:ObjectName="YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=YASH_VAGHASIYA\SQLEXPRESS;Initial Catalog=Customers_sales_integration;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{6D0F5159-8DCA-4307-B484-BC7D1B991503}YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C594C176-601F-40D6-A3EA-73D33A98FDC6}"
+      DTS:ObjectName="YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=YASH_VAGHASIYA\SQLEXPRESS;Initial Catalog=Customers_sales_integration;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Summary-{C594C176-601F-40D6-A3EA-73D33A98FDC6}YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{14FF01CA-227A-4077-BFB4-F036CCDE8FAB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6D0F5159-8DCA-4307-B484-BC7D1B991503}"
+          SQLTask:SqlStatementSource="truncate table dbo.Sales_Daily_Summary" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Genarating Summary"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{14F0CCE9-BD31-4555-B953-78D7E56585C5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Genarating Summary"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Genarating Summary\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[OrderDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="OrderDate"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Region"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      lineageId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[Amount]"
+                      cachedDataType="numeric"
+                      cachedName="Amount"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[SalesId]"
+                      cachedDataType="i4"
+                      cachedName="SalesId"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[SalesId]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[ProductId]"
+                      cachedDataType="i4"
+                      cachedName="ProductId"
+                      lineageId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[ProductId]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1].Columns[Copy of ProductCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of ProductCode"
+                      lineageId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[OrderDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[OrderDate]"
+                      name="OrderDate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OrderDate]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Region]"
+                      name="Region">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Region]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Category]"
+                      name="Category">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[Category]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Total_Quantity]"
+                      dataType="i8"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Total_Quantity]"
+                      name="Total_Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Quantity]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Total_amount]"
+                      dataType="numeric"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Total_amount]"
+                      name="Total_amount"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Avg_amount]"
+                      dataType="numeric"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Avg_amount]"
+                      name="Avg_amount"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">5</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[MIN_amount]"
+                      dataType="numeric"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[MIN_amount]"
+                      name="MIN_amount"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">6</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[MAX_amount]"
+                      dataType="numeric"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[MAX_amount]"
+                      name="MAX_amount"
+                      precision="10"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Record_count]"
+                      dataType="ui8"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Record_count]"
+                      name="Record_count">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[SalesId]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Lookup for Product Category.ProductId]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Lookup for Product Category.ProductId]"
+                      name="Lookup for Product Category.ProductId">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[ProductId]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of ProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Copy of ProductCode]"
+                      name="Copy of ProductCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCode]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Genarating Summary\Clean_sales_table"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Clean_sales_table"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Fact_Sales_Clean]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Genarating Summary\Clean_sales_table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+                  connectionManagerRefId="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[SalesId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[SalesId]"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[SalesId]"
+                      name="SalesId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OrderId]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[OrderId]"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OrderId]"
+                      name="OrderId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Amount]"
+                      name="Amount"
+                      precision="10"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[CustomerId]"
+                      name="CustomerId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[ProductId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[ProductId]"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[ProductId]"
+                      name="ProductId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Region]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OriginalCustomerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[OriginalCustomerName]"
+                      length="100"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[OriginalCustomerName]"
+                      name="OriginalCustomerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[CanonicalCustomerName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[CanonicalCustomerName]"
+                      length="100"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[CanonicalCustomerName]"
+                      name="CanonicalCustomerName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[MatchScore]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[MatchScore]"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[MatchScore]"
+                      name="MatchScore"
+                      precision="5"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[ProductCode]"
+                      name="ProductCode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[SalesId]"
+                      dataType="i4"
+                      name="SalesId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[OrderId]"
+                      dataType="wstr"
+                      length="10"
+                      name="OrderId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[OrderDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="OrderDate" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[Amount]"
+                      dataType="numeric"
+                      name="Amount"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[CustomerId]"
+                      dataType="i4"
+                      name="CustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[ProductId]"
+                      dataType="i4"
+                      name="ProductId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[OriginalCustomerName]"
+                      dataType="wstr"
+                      length="100"
+                      name="OriginalCustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[CanonicalCustomerName]"
+                      dataType="wstr"
+                      length="100"
+                      name="CanonicalCustomerName" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[MatchScore]"
+                      dataType="numeric"
+                      name="MatchScore"
+                      precision="5"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].ExternalColumns[ProductCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="ProductCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[SalesId]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[SalesId]"
+                      name="SalesId" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[OrderId]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[OrderId]"
+                      name="OrderId" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[OrderDate]"
+                      name="OrderDate" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      dataType="numeric"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[Amount]"
+                      name="Amount"
+                      precision="10"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[CustomerId]"
+                      name="CustomerId" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ProductId]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ProductId]"
+                      name="ProductId" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[OriginalCustomerName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[OriginalCustomerName]"
+                      name="OriginalCustomerName" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[CanonicalCustomerName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[CanonicalCustomerName]"
+                      name="CanonicalCustomerName" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[MatchScore]"
+                      dataType="numeric"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[MatchScore]"
+                      name="MatchScore"
+                      precision="5"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ProductCode]"
+                      name="ProductCode" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Genarating Summary\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Genarating Summary\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genarating Summary\Data Conversion.Inputs[Data Conversion Input].Columns[ProductCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ProductCode"
+                      lineageId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[ProductCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Genarating Summary\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCode]"
+                      name="Copy of ProductCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output].Columns[ProductCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Genarating Summary\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Genarating Summary\Lookup for Product Category"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup for Product Category"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Dim_Product_master_table]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Dim_Product_master_table]) [refTable]
+where [refTable].[ProductCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ProductId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProductCode" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Genarating Summary\Lookup for Product Category.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+                  connectionManagerRefId="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Genarating Summary\Lookup for Product Category.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genarating Summary\Lookup for Product Category.Inputs[Lookup Input].Columns[Copy of ProductCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of ProductCode"
+                      lineageId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of ProductCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ProductCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Genarating Summary\Lookup for Product Category.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[Category]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[Category]"
+                      name="Category"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Category</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[ProductId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output].Columns[ProductId]"
+                      name="ProductId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">ProductId</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Genarating Summary\Lookup for Product Category.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Genarating Summary\Lookup for Product Category.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Genarating Summary\Summary_table"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Summary_table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Sales_Daily_Summary]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Genarating Summary\Summary_table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+                  connectionManagerRefId="Package.ConnectionManagers[YASH_VAGHASIYA\SQLEXPRESS.Customers_sales_integration]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Region]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Category]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Category"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Category]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[OrderDate]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="OrderDate"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[SalesDate]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[OrderDate]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Lookup for Product Category.ProductId]"
+                      cachedDataType="i4"
+                      cachedName="Lookup for Product Category.ProductId"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Lookup for Product Category.ProductId]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Total_Quantity]"
+                      cachedDataType="i8"
+                      cachedName="Total_Quantity"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[TotalQuantity]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Total_Quantity]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Total_amount]"
+                      cachedDataType="numeric"
+                      cachedName="Total_amount"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Total_amount]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Record_count]"
+                      cachedDataType="ui8"
+                      cachedName="Record_count"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[RecordCount]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Record_count]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[Avg_amount]"
+                      cachedDataType="numeric"
+                      cachedName="Avg_amount"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[AvgAmount]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[Avg_amount]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[MIN_amount]"
+                      cachedDataType="numeric"
+                      cachedName="MIN_amount"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[MinAmount]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[MIN_amount]" />
+                    <inputColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].Columns[MAX_amount]"
+                      cachedDataType="numeric"
+                      cachedName="MAX_amount"
+                      cachedPrecision="10"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[MaxAmount]"
+                      lineageId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1].Columns[MAX_amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[SummaryId]"
+                      dataType="i4"
+                      name="SummaryId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[SalesDate]"
+                      dataType="wstr"
+                      length="10"
+                      name="SalesDate" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[Region]"
+                      dataType="wstr"
+                      length="10"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[ProductId]"
+                      dataType="i4"
+                      name="ProductId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[CustomerId]"
+                      dataType="i4"
+                      name="CustomerId" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      dataType="wstr"
+                      length="50"
+                      name="Category" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[TotalQuantity]"
+                      dataType="i4"
+                      name="TotalQuantity" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[TotalAmount]"
+                      dataType="numeric"
+                      name="TotalAmount"
+                      precision="12"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[RecordCount]"
+                      dataType="i4"
+                      name="RecordCount" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[AvgAmount]"
+                      dataType="numeric"
+                      name="AvgAmount"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[MinAmount]"
+                      dataType="numeric"
+                      name="MinAmount"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[MaxAmount]"
+                      dataType="numeric"
+                      name="MaxAmount"
+                      precision="10"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input].ExternalColumns[LoadTimestamp]"
+                      dataType="dbTimeStamp"
+                      name="LoadTimestamp" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Genarating Summary\Summary_table.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Genarating Summary\Summary_table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Summary_table.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Genarating Summary\Summary_table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Genarating Summary\Summary_table.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Genarating Summary.Paths[Aggregate Output 1]"
+              endId="Package\Genarating Summary\Summary_table.Inputs[OLE DB Destination Input]"
+              name="Aggregate Output 1"
+              startId="Package\Genarating Summary\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Genarating Summary.Paths[Data Conversion Output]"
+              endId="Package\Genarating Summary\Lookup for Product Category.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Genarating Summary\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Genarating Summary.Paths[Lookup Match Output]"
+              endId="Package\Genarating Summary\Aggregate.Inputs[Aggregate Input 1]"
+              name="Lookup Match Output"
+              startId="Package\Genarating Summary\Lookup for Product Category.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Genarating Summary.Paths[OLE DB Source Output]"
+              endId="Package\Genarating Summary\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\Genarating Summary\Clean_sales_table.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{20079AFD-E023-4CBD-BA7D-B6563B00934B}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Genarating Summary" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Genarating Summary"
+          TopLeft="207.4999886627,131.733332417276" />
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Execute SQL Task"
+          TopLeft="207.4999886627,64.9999995479981" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="292.8999886627,106.599999547998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.1333328692779"
+              Start="0,0"
+              End="0,17.6333328692779">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.6333328692779" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Genarating Summary">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Genarating Summary\Clean_sales_table"
+          TopLeft="301.666650184327,36.3999997468789" />
+        <NodeLayout
+          Size="211.2,41.6"
+          Id="Package\Genarating Summary\Lookup for Product Category"
+          TopLeft="269.166651960049,189.799998680155" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Genarating Summary\Aggregate"
+          TopLeft="309.999983062348,270.399998119672" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Genarating Summary\Data Conversion"
+          TopLeft="303.333316759932,111.799999222557" />
+        <EdgeLayout
+          Id="Package\Genarating Summary.Paths[OLE DB Source Output]"
+          TopLeft="382.49998347213,77.999999746879">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.7999994756781"
+              Start="0,0"
+              End="0,26.2999994756781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.2999994756781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Genarating Summary.Paths[Lookup Match Output]"
+          TopLeft="373.983317511198,231.399998680155">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.999999439517"
+              Start="0,0"
+              End="0,31.499999439517">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.499999439517" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,9.94531221975849,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Genarating Summary.Paths[Data Conversion Output]"
+          TopLeft="378.049984359991,153.399999222557">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.399999457598"
+              Start="0,0"
+              End="0,28.899999457598">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.899999457598" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="151.2,41.6"
+          Id="Package\Genarating Summary\Summary_table"
+          TopLeft="324.999982242784,344.199997956951" />
+        <EdgeLayout
+          Id="Package\Genarating Summary.Paths[Aggregate Output 1]"
+          TopLeft="373.199983062348,311.999998119672">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.3999991804357,32.1999998372794"
+              Start="0,0"
+              End="27.3999991804357,24.6999998372794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.0999999186397" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.0999999186397"
+                    Point2="0,16.0999999186397"
+                    Point3="4,16.0999999186397" />
+                  <mssgle:LineSegment
+                    End="23.3999991804357,16.0999999186397" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.3999991804357,16.0999999186397"
+                    Point2="27.3999991804357,16.0999999186397"
+                    Point3="27.3999991804357,20.0999999186397" />
+                  <mssgle:LineSegment
+                    End="27.3999991804357,24.6999998372794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Genarating Summary\Clean_sales_table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Genarating Summary\Lookup for Product Category">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Product_master_table]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Genarating Summary\Summary_table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
