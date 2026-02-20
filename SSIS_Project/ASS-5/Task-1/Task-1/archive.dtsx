@@ -1,0 +1,169 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/20/2026 3:28:07 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="YASH_VAGHASIYA"
+  DTS:CreatorName="YASH_VAGHASIYA\yashv"
+  DTS:DelayValidation="True"
+  DTS:DTSID="{7C4D8BD5-9708-4939-AF82-CE44101DCEFD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="archive"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{2172A519-277B-4933-A1DA-C1BE7B746158}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Archived files]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8E22B5F2-9C8C-4B82-97B1-29D55CDA3A94}"
+      DTS:ObjectName="Archived files">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Archived files" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Customer1.CSV]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{6295062E-1AD3-44B3-8228-8FA33E48CF07}"
+      DTS:ObjectName="Customer1.CSV">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data\Customer1.CSV" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Data]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{0652C7E6-8FE9-4835-8DFB-851FF63108A6}"
+      DTS:ObjectName="Data">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:FileUsageType="2"
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2D30AB1A-86CB-4189-A1A9-70E907783113}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="destination">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Archived files\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AEA59B39-279B-4C82-9C1A-3A80A975ADA0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="file">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{163F510E-4C53-47E0-B118-3E418B45E8CF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="source">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data\</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{818CCEEF-F667-487A-875E-6F37B619421D}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{BA2D110D-4292-4772-906F-B70718337DF1}"
+        DTS:ObjectName="{BA2D110D-4292-4772-906F-B70718337DF1}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data" />
+            <FEFEProperty
+              FileSpec="*.csv" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Archieved file"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{45E3B08B-482F-46A9-8E69-F1BCAE5D22A4}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Archieved file"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::source"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="Archived files" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E3A98127-4042-4443-9720-A3212395CE5F}"
+          DTS:ObjectName="{E3A98127-4042-4443-9720-A3212395CE5F}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::source" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="140.8,41.6"
+          Id="Package\Foreach Loop Container\Archieved file"
+          TopLeft="25.199989618858,27.6666652503941" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="204.8,124"
+          Size="214.4,167.2"
+          Id="Package\Foreach Loop Container"
+          TopLeft="274.999984974663,118.066665883197" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
