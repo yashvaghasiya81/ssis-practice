@@ -1,83 +1,42 @@
 ﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="2/20/2026 3:28:07 PM"
+  DTS:CreationDate="2/20/2026 3:57:39 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="YASH_VAGHASIYA"
   DTS:CreatorName="YASH_VAGHASIYA\yashv"
-  DTS:DelayValidation="True"
-  DTS:DTSID="{7C4D8BD5-9708-4939-AF82-CE44101DCEFD}"
+  DTS:DTSID="{83DDE50C-2F29-460D-890D-92D3CC7030F0}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1010.2"
   DTS:LocaleID="16393"
-  DTS:ObjectName="archive"
+  DTS:ObjectName="Copy_files"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{7AF780DF-110C-4598-BF0E-ABA85784738E}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{5FB45902-C1A0-4863-BBB9-52F26A4D1BBF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Archived files]"
+      DTS:refId="Package.ConnectionManagers[Destination]"
       DTS:CreationName="FILE"
-      DTS:DTSID="{8E22B5F2-9C8C-4B82-97B1-29D55CDA3A94}"
-      DTS:ObjectName="Archived files">
+      DTS:DTSID="{DF81F3B3-B219-447A-8604-3E1DB993604D}"
+      DTS:ObjectName="Destination">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:FileUsageType="2"
-          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Archived files" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Customer1.CSV]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{6295062E-1AD3-44B3-8228-8FA33E48CF07}"
-      DTS:ObjectName="Customer1.CSV">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data\Customer1.CSV" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Data]"
-      DTS:CreationName="FILE"
-      DTS:DTSID="{0652C7E6-8FE9-4835-8DFB-851FF63108A6}"
-      DTS:ObjectName="Data">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:FileUsageType="2"
-          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data" />
+          DTS:ConnectionString="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-2\Destination" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{2D30AB1A-86CB-4189-A1A9-70E907783113}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="destination">
-      <DTS:VariableValue
-        DTS:DataType="8">D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Archived files\</DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{AEA59B39-279B-4C82-9C1A-3A80A975ADA0}"
+      DTS:DTSID="{28C86A41-16EE-40FC-A979-37E26B3E7E76}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="file">
       <DTS:VariableValue
-        DTS:DataType="8"
-        xml:space="preserve"></DTS:VariableValue>
-    </DTS:Variable>
-    <DTS:Variable
-      DTS:CreationName=""
-      DTS:DTSID="{163F510E-4C53-47E0-B118-3E418B45E8CF}"
-      DTS:IncludeInDebugDump="2345"
-      DTS:Namespace="User"
-      DTS:ObjectName="source">
-      <DTS:VariableValue
-        DTS:DataType="8">D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data\</DTS:VariableValue>
+        DTS:DataType="8">D:\SSIS_Practice\SSIS_Project\ASS-5\Task-2\Source</DTS:VariableValue>
     </DTS:Variable>
   </DTS:Variables>
   <DTS:Executables>
@@ -85,18 +44,18 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:DTSID="{818CCEEF-F667-487A-875E-6F37B619421D}"
+      DTS:DTSID="{255CA4E1-079E-4F2A-9685-EAEF2CE02F1D}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Foreach Loop Container">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
-        DTS:DTSID="{BA2D110D-4292-4772-906F-B70718337DF1}"
-        DTS:ObjectName="{BA2D110D-4292-4772-906F-B70718337DF1}">
+        DTS:DTSID="{D6B3A972-325E-422F-9C4E-8DAA1D0F0233}"
+        DTS:ObjectName="{D6B3A972-325E-422F-9C4E-8DAA1D0F0233}">
         <DTS:ObjectData>
           <ForEachFileEnumeratorProperties>
             <FEFEProperty
-              Folder="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-1\Data" />
+              Folder="D:\SSIS_Practice\SSIS_Project\ASS-5\Task-2\Source" />
             <FEFEProperty
               FileSpec="*.csv" />
             <FEFEProperty
@@ -109,33 +68,31 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Foreach Loop Container\Archieved file"
+          DTS:refId="Package\Foreach Loop Container\Source to Destination Folder"
           DTS:CreationName="Microsoft.FileSystemTask"
           DTS:Description="File System Task"
-          DTS:DTSID="{45E3B08B-482F-46A9-8E69-F1BCAE5D22A4}"
+          DTS:DTSID="{DE5A71F2-979C-4DCF-BA94-D52439C5E027}"
           DTS:ExecutableType="Microsoft.FileSystemTask"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Archieved file"
+          DTS:ObjectName="Source to Destination Folder"
           DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
           DTS:ThreadHint="0">
           <DTS:Variables />
           <DTS:ObjectData>
             <FileSystemData
-              TaskOperationType="MoveFile"
-              TaskOverwriteDestFile="True"
-              TaskSourcePath="User::source"
+              TaskSourcePath="User::file"
               TaskIsSourceVariable="True"
-              TaskDestinationPath="Archived files" />
+              TaskDestinationPath="Destination" />
           </DTS:ObjectData>
         </DTS:Executable>
       </DTS:Executables>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{E3A98127-4042-4443-9720-A3212395CE5F}"
-          DTS:ObjectName="{E3A98127-4042-4443-9720-A3212395CE5F}"
+          DTS:DTSID="{3F8B76E5-4AF6-4080-9B87-7474D93DA2F6}"
+          DTS:ObjectName="{3F8B76E5-4AF6-4080-9B87-7474D93DA2F6}"
           DTS:ValueIndex="0"
-          DTS:VariableName="User::source" />
+          DTS:VariableName="User::file" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -152,16 +109,16 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
         <NodeLayout
-          Size="140.8,41.6"
-          Id="Package\Foreach Loop Container\Archieved file"
-          TopLeft="25.199989618858,27.6666652503941" />
+          Size="158.4,41.6"
+          Id="Package\Foreach Loop Container\Source to Destination Folder"
+          TopLeft="25.6333136182702,26.3999986259143" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="204.8,124"
-          Size="204.8,167.2"
+          PanelSize="248,123.2"
+          Size="248,166.4"
           Id="Package\Foreach Loop Container"
-          TopLeft="274.999984974663,118.066665883197" />
+          TopLeft="334.999981696408,128.266665774716" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
