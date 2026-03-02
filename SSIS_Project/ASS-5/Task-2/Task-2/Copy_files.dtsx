@@ -11,8 +11,8 @@
   DTS:LocaleID="16393"
   DTS:ObjectName="Copy_files"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{5FB45902-C1A0-4863-BBB9-52F26A4D1BBF}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{31AECD0A-9364-40A9-8BE0-952048EEF8DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -89,8 +89,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{3F8B76E5-4AF6-4080-9B87-7474D93DA2F6}"
-          DTS:ObjectName="{3F8B76E5-4AF6-4080-9B87-7474D93DA2F6}"
+          DTS:DTSID="{4506D1D2-36A4-4A74-A7B2-A1623C4AD72E}"
+          DTS:ObjectName="{4506D1D2-36A4-4A74-A7B2-A1623C4AD72E}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::file" />
       </DTS:ForEachVariableMappings>
@@ -118,7 +118,7 @@
           PanelSize="248,123.2"
           Size="248,166.4"
           Id="Package\Foreach Loop Container"
-          TopLeft="334.999981696408,128.266665774716" />
+          TopLeft="333.333315120804,126.533332453436" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
